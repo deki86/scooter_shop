@@ -30,6 +30,7 @@ class Part extends Model
         'image',
         'description',
         'status',
+        'quantity',
         'manufacturer_id',
         'brand_id',
         'subcategories_id',
