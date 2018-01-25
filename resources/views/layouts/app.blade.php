@@ -28,14 +28,15 @@
 
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container mt-4">
 
       <div class="row">
 
         <div class="col-lg-3">
-          @include('includes.sidebar')
 
-
+           @if (in_array(\Request::route()->getName(), ['home']))
+              @include('includes.sidebar', ['page' => 'register'])
+           @endif
 
         </div>
         <!-- /.col-lg-3 -->
@@ -44,6 +45,16 @@
       @yield('content')
 
 
+
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
 
 
     <!-- Footer -->

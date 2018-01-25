@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Part;
+use App\PartCategory;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,28 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //Fetching all categories with subcategories
+        $sub = PartCategory::with('subcategories')->get();
+
+        // Fetching random parts, display only 12
+        $parts = Part::all()->random(12);
+
+        return view('home', compact('sub', 'parts'));
+    }
+    /**
+     * Show about page
+     * @return \Iluminate\Http\Response
+     */
+    public function about()
+    {
+        return view('about');
+    }
+    /**
+     * Show contact page
+     * @return \Iluminate\Http\Response
+     */
+    public function contact()
+    {
+        return view('contact');
     }
 }
