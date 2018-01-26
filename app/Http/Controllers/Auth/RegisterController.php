@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Mail\verifyMail;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -18,7 +20,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,9 +50,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:3|max:255',
+            'lastname' => 'required|string|min:3|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'address' => 'required|min:3',
+            'city' => 'required|min:3',
+            'country' => 'required|min:3',
+
         ]);
     }
 
@@ -62,10 +69,40 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'country' => $data['country'],
+            'verification_token' => User::generateVerificationCode(),
         ]);
+
+        $thisUser = User::findOrFail($user->id);
+        $this->sendEmail($thisUser);
+
+        return $user;
+    }
+
+    public function sendEmail($user)
+    {
+        Mail::to($user['email'])->send(new verifyMail($user));
+    }
+
+    public function verifyEmail()
+    {
+        return view('email.verifyEmail');
+    }
+
+    public function sendEmailDone($email, $verification_token)
+    {
+        $user = User::where(['email' => $email, 'verification_token' => $verification_token])->first();
+        if ($user) {
+            return User::where(['email' => $email, 'verification_token' => $verification_token])->update(['verified' => User::VERIFIED_USER, 'verification_token' => null]);
+        } else {
+            return "User not found";
+        }
     }
 }

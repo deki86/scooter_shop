@@ -1,7 +1,7 @@
           <h1 class="my-4">Scooteri Shop</h1>
 
-
-          <form class="border border-secondary rounded p-3">
+		@guest
+          <form class="border border-secondary rounded p-3" method="POST" action="{{ route('home') }}">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Email address</label>
 			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -10,14 +10,32 @@
 			    <label for="exampleInputPassword1">Password</label>
 			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 			  </div>
-			  <button type="submit" class="btn btn-primary">Log in</button>
+			  <button type="submit" class="btn btn-primary">Login</button>
+
 			  <a class="float-right mt-2" href="{{ route('register') }}">Register</a>
 
 			   <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
+                                <span class="oi oi-cart"></span>
 		  </form>
+		@endauth
 
+		@auth
+			<p>Dobrodosli</p>
+
+
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+
+		@endauth
 
 
           <div class="list-group mt-3 mb-3">

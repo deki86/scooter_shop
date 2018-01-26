@@ -2,7 +2,7 @@
 
 @section('content')
 
-                <div class="panel-heading">Reset Password</div>
+               <h1 class="display-4"> Reset Password</h1>
 
                 <div class="panel-body">
                     @if (session('status'))
