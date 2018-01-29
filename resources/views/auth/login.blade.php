@@ -5,7 +5,17 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                @if( session('error') )
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+                @endif
+                @if( session('success') )
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+                @endif
+                <div class="display-4">Login</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">

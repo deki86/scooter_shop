@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\verifyMail;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -86,23 +88,48 @@ class RegisterController extends Controller
         return $user;
     }
 
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+        ?: redirect($this->redirectPath())->with('status', 'Please verify your account!');
+    }
+    /**
+     * Send verification email to users who just registered
+     * @param  array $user
+     * @return void
+     */
     public function sendEmail($user)
     {
         Mail::to($user['email'])->send(new verifyMail($user));
     }
 
-    public function verifyEmail()
-    {
-        return view('email.verifyEmail');
-    }
-
+    /**
+     * Verification users
+     * @param  string $email
+     * @param  string $verification_token
+     * @return mixed
+     */
     public function sendEmailDone($email, $verification_token)
     {
         $user = User::where(['email' => $email, 'verification_token' => $verification_token])->first();
         if ($user) {
-            return User::where(['email' => $email, 'verification_token' => $verification_token])->update(['verified' => User::VERIFIED_USER, 'verification_token' => null]);
+            $updated = User::where(['email' => $email, 'verification_token' => $verification_token])
+                ->update(['verified' => User::VERIFIED_USER, 'verification_token' => null]);
+            return redirect('/login')->with('success', 'Your email is now activated!');
         } else {
-            return "User not found";
+            return redirect('/login')->with('error', 'Something goes wrong!');
         }
     }
 }

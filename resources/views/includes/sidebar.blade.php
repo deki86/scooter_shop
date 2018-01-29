@@ -1,31 +1,28 @@
           <h1 class="my-4">Scooteri Shop</h1>
 
-		@guest
-          <form class="border border-secondary rounded p-3" method="POST" action="{{ route('home') }}">
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">Email address</label>
-			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-			  </div>
-			  <div class="form-group">
-			    <label for="exampleInputPassword1">Password</label>
-			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-			  </div>
-			  <button type="submit" class="btn btn-primary">Login</button>
-
-			  <a class="float-right mt-2" href="{{ route('register') }}">Register</a>
-
-			   <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                                <span class="oi oi-cart"></span>
-		  </form>
-		@endauth
-
-		@auth
-			<p>Dobrodosli</p>
 
 
-                                        <a href="{{ route('logout') }}"
+
+			<!-- User account -->
+			<ul class="list-group d-block mt-3">
+
+				<li class="list-group-item pl-0" data-toggle="tooltip" data-placement="right" title="user">
+		          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseuser" data-parent="#exampleuser">
+
+		            <span class="nav-link-text"><i class="fa fa-user-o fa-2x float-left" aria-hidden="true"></i> <h4 class="pl-5 pt-1">  User account</h4></span>
+		          </a>
+
+					  <ul class="sidenav-second-level collapse" id="collapseuser">
+						@guest
+						<li class="list-group">
+			            	  <a  href="{{ route('login') }}">Login</a>
+			            </li>
+			            <li class="list-group">
+			            	 <a href="{{ route('register') }}">Register</a>
+			            </li>
+			            @endauth
+			            @auth
+							 <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
@@ -34,8 +31,37 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
+			            @endauth
 
-		@endauth
+
+			          </ul>
+
+			</ul>
+
+
+			<!-- Shopping cart -->
+			<ul class="list-group d-block mt-3">
+
+				<li class="list-group-item pl-0" data-toggle="tooltip" data-placement="right" title="cart">
+		          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsecart" data-parent="#examplecart">
+
+		            <span class="nav-link-text"><i class="fa fa-shopping-cart fa-2x float-left" aria-hidden="true"></i> <h4 class="pl-5 pt-1">  Shopping cart</h4></span>
+		          </a>
+
+					  <ul class="sidenav-second-level collapse" id="collapsecart">
+
+						<li class="list-group">
+			            	  <a  href="">proba</a>
+			            </li>
+
+
+			          </ul>
+
+			</ul>
+
+
+
+
 
 
           <div class="list-group mt-3 mb-3">
