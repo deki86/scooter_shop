@@ -40,12 +40,4 @@ class HomeController extends Controller
     {
         return view('about');
     }
-    /**
-     * Show contact page
-     * @return \Iluminate\Http\Response
-     */
-    public function contact()
-    {
-        return view('contact');
-    }
 }
