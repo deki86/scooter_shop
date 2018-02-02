@@ -21,6 +21,6 @@ class Brand extends Model
      */
     public function part()
     {
-        return $this->hasMany(Part::class);
+        return $this->hasMany(Part::class, 'brand_id');
     }
 }

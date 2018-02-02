@@ -49,7 +49,7 @@ class Part extends Model
      */
     public function brand()
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class, 'parent_id');
     }
     /**
      * Relation of manufacturer model and Part Model
@@ -57,7 +57,7 @@ class Part extends Model
      */
     public function manufacturer()
     {
-        return $this->belongsTo(Manufacturer::class);
+        return $this->belongsTo(Manufacturer::class, 'parent_id');
     }
     /**
      * Relation of subcategories model and part model
@@ -65,7 +65,7 @@ class Part extends Model
      */
     public function subcategories()
     {
-        return $this->belongsTo(PartSubcategory::class);
+        return $this->belongsTo(PartSubcategory::class, 'parent_id');
     }
 
 }

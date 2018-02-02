@@ -20,6 +20,6 @@ class Manufacturer extends Model
      */
     public function part()
     {
-        return $this->hasMany(Part::class);
+        return $this->hasMany(Part::class, 'manufacturer_id');
     }
 }
