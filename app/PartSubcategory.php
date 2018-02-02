@@ -30,6 +30,6 @@ class PartSubcategory extends Model
      */
     public function part()
     {
-        return $this->hasMany(Part::class);
+        return $this->hasMany(Part::class, 'subcategories_id');
     }
 }

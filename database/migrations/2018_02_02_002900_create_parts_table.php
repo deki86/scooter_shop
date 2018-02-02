@@ -15,7 +15,6 @@ class CreatePartsTable extends Migration
     public function up()
     {
         Schema::create('parts', function (Blueprint $table) {
-
             $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('name');
@@ -31,10 +30,9 @@ class CreatePartsTable extends Migration
 
             $table->timestamps();
 
-            // $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
-            // $table->foreign('brand_id')->references('id')->on('brands');
-            // $table->foreign('subcategories_id')->references('id')->on('part_subcategories');
-
+            $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
+            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('subcategories_id')->references('id')->on('part_subcategories');
         });
     }
 
