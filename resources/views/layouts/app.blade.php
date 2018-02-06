@@ -34,9 +34,9 @@
 
         <div class="col-lg-3">
 
-           @if (in_array(\Request::route()->getName(), ['home']))
-              @include('includes.sidebar', ['page' => 'register'])
-           @endif
+
+              @include('includes.sidebar')
+
 
         </div>
         <!-- /.col-lg-3 -->

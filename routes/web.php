@@ -22,3 +22,7 @@ Route::get('/contact', 'ContactController@contact')->name('contact');
 Route::post('/contact', 'ContactController@storeMessage');
 
 Route::get('verify/{email}/{token}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
+Route::resource('categories.parts', 'Category\CategoryPartController', ['only' => ['index']]);
+
+Route::resource('subcategories.parts', 'SubCategory\SubCategoryPartController', ['only' => ['index']]);

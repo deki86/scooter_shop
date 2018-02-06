@@ -12,7 +12,15 @@ a {
 		padding-top: 76px;
 	}
 }
-
+li.list-group-item > a,
+li.list-group-item > a:hover,
+li.list-group-item > a:focus {
+	background-color: rgb(255, 255, 255);
+    color: rgb(85, 85, 85);
+}
+li.list-group-item:hover > .sidenav-second-level {
+    display: block;
+}
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
 $list-group-border: $laravel-border-color;

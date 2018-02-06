@@ -13063,3 +13063,14 @@ a {
   }
 }
 
+li.list-group-item > a,
+li.list-group-item > a:hover,
+li.list-group-item > a:focus {
+  background-color: white;
+  color: #555555;
+}
+
+li.list-group-item:hover > .sidenav-second-level {
+  display: block;
+}
+

@@ -22,7 +22,7 @@ class PartSubcategory extends Model
      */
     public function categories()
     {
-        return $this->belongsTo(PartCategory::class, 'parent_id');
+        return $this->belongsTo(PartCategory::class);
     }
     /**
      * Relation between of PartSubcategory model and Part model

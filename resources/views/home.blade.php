@@ -50,10 +50,12 @@
                   <h4 class="card-title">
                     <a href="#">{{ $item->name }}</a>
                   </h4>
-                  <h5>${{ $item->price }}</h5>
-                  <p class="card-text">{{ $item->description }}</p>
-                </div>
+                  <h5>Price: <span class="badge badge-info">{{ $item->price }}$ </span></h5>
+                  <p class="card-text"><span>Description:</span> {{ str_limit($item->description, 40) }}</p>
 
+
+                </div>
+                <button type="button" class="btn btn-dark">More info...</button>
               </div>
             </div>
             @endforeach

@@ -72,15 +72,15 @@
 		<ul class="list-group">
 			@foreach($sub as $cat)
 			 <li class="list-group-item" data-toggle="tooltip" data-placement="right" title="{{ $cat->name }}">
-		          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapse{{$cat->name}}" data-parent="#example{{$cat->name}}">
+		          <span class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapse{{$cat->name}}" data-parent="#example{{$cat->name}}">
 
-		            <span class="nav-link-text">{{ $cat->name }}</span>
-		          </a>
+		            <a href="{{ route('categories.parts.index', ['category' => $cat->id]) }}" class="nav-link-text">{{ $cat->name }}</a>
+		          </span>
 
 			          <ul class="sidenav-second-level collapse" id="collapse{{$cat->name}}">
 						@foreach($cat->subcategories as $item)
 						<li class="list-group">
-			            	  <a  href="">{{ $item->name }}</a>
+			            	  <a  href="{{ route('subcategories.parts.index', ['subcategory'=> $item->id ]) }}">{{ $item->name }}</a>
 			            </li>
 						@endforeach
 
