@@ -26,3 +26,5 @@ Route::get('verify/{email}/{token}', 'Auth\RegisterController@sendEmailDone')->n
 Route::resource('categories.parts', 'Category\CategoryPartController', ['only' => ['index']]);
 
 Route::resource('subcategories.parts', 'SubCategory\SubCategoryPartController', ['only' => ['index']]);
+
+Route::resource('parts', 'Part\PartController');

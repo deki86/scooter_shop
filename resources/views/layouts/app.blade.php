@@ -41,14 +41,13 @@
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
+
       @yield('content')
 
 
 
 
-        </div>
-        <!-- /.col-lg-9 -->
+
 
       </div>
       <!-- /.row -->

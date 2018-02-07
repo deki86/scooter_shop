@@ -65,7 +65,7 @@ class Part extends Model
      */
     public function subcategories()
     {
-        return $this->belongsTo(PartSubcategory::class, 'parent_id');
+        return $this->belongsTo(PartSubcategory::class);
     }
 
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="col-lg-9">
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -38,32 +38,27 @@
             </a>
           </div>
 
-          <div class="row">
+    @foreach(array_chunk($parts->all(), 3) as $row)
+      <div class="row">
+            @foreach($row as $item)
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <a href="{{ route('parts.show', ['part' => $item->id]) }}"><img class="card-img-top" src="{{ $item->image }}" alt=""></a>
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <a href="{{ route('parts.show', ['part' => $item->id]) }}">{{ $item->name }}</a>
+                      </h4>
+                      <h5>Price: <span class="badge badge-info">{{ $item->price }}$ </span></h5>
+                      <p class="card-text"><span>Description:</span> {{ str_limit($item->description, 40) }}</p>
 
 
-          @foreach($parts as $item)
-            <div class="col-lg-4 col-md-6 mb-4">
-
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{ $item->image }}" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">{{ $item->name }}</a>
-                  </h4>
-                  <h5>Price: <span class="badge badge-info">{{ $item->price }}$ </span></h5>
-                  <p class="card-text"><span>Description:</span> {{ str_limit($item->description, 40) }}</p>
-
-
+                    </div>
+                    <button type="button" class="btn btn-dark"><a href="{{ route('parts.show', ['part' => $item->id]) }}">More info...</a></button>
+                  </div>
                 </div>
-                <button type="button" class="btn btn-dark">More info...</button>
-              </div>
-            </div>
             @endforeach
-
-
-
-          </div>
-          <!-- /.row -->
-
-
+          </div><!-- /.row -->
+    @endforeach
+</div>
+<!-- /.col-lg-9 -->
 @endsection
