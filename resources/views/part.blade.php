@@ -42,7 +42,7 @@
             <ul class="sidenav-second-level collapse" id="collapsecart">
             @foreach($brands as $brand)
             <li class="list-group">
-                      <a  href="">{{ $brand->name }}</a>
+                      <a  href="{{ route('brand.parts.index', ['brand'=> $brand->id ]) }}">{{ $brand->name }}</a>
                   </li>
 
             @endforeach
@@ -62,7 +62,7 @@
             <ul class="sidenav-second-level collapse" id="collapsecart">
             @foreach($manufacturers as $manufacturer)
             <li class="list-group">
-                      <a  href="">{{ $manufacturer->name }}</a>
+                      <a  href="{{ route('manufacturer.parts.index', ['manufacturer'=> $manufacturer->id ]) }}">{{ $manufacturer->name }}</a>
                   </li>
 
             @endforeach
