@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro:400,700,900');
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Variables for admin styles
+@import "admin/variables.scss";
+@import "admin/mixins.scss";
+@import "admin/global.scss";
+@import "admin/utilities.scss";
+@import "admin/navbar/navbar_global.scss";
+@import "admin/navbar/navbar_fixed.scss";
+@import "admin/navbar/navbar_static.scss";
+@import "admin/navbar/navbar_toggle.scss";
+@import "admin/navbar/navbar_colors.scss";
+@import "admin/cards.scss";
+@import "admin/login.scss";
+@import "admin/footer.scss";

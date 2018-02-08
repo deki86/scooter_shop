@@ -10,6 +10,13 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
+/**
+ * Public assets
+ */
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+/**
+ * Admin dashboard
+ */
+mix.js('resources/assets/js/app.js', 'public/admin/js')
+   .sass('resources/assets/sass/admin-app.scss', 'public/admin/css');

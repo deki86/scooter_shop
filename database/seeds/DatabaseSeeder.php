@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin;
 use App\Brand;
 use App\Manufacturer;
 use App\Part;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
         Manufacturer::truncate();
         PartSubcategory::truncate();
         Part::truncate();
+        Admin::truncate();
 
         $usersQuantity = 500;
         $categoriesQuantity = 30;
@@ -36,6 +38,7 @@ class DatabaseSeeder extends Seeder
         $partQuantity = 1000;
         $brandQuantity = 20;
         $manufacturerQuantity = 50;
+        $adminQuantity = 10;
 
         factory(User::class, $usersQuantity)->create();
         factory(PartCategory::class, $categoriesQuantity)->create();
@@ -44,6 +47,8 @@ class DatabaseSeeder extends Seeder
 
         factory(PartSubcategory::class, $subCategoriesQuantity)->create();
         factory(Part::class, $partQuantity)->create();
+
+        factory(Admin::class, $adminQuantity)->create();
 
     }
 }
