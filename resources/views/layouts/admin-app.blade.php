@@ -24,7 +24,7 @@
     @if(in_array(\Request::route()->getName(), ['admin.login', 'admin.register', 'admin.password.request']))
         <body class="bg-dark">
     @else
-        <body>
+        <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     @endif
 
 

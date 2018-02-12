@@ -14,14 +14,14 @@ class CreatePartSubcategoriesTable extends Migration
     public function up()
     {
         Schema::create('part_subcategories', function (Blueprint $table) {
-            $table->engine = "InnoDB";
+
             $table->increments('id');
             $table->integer('categories_id')->unsigned();
             $table->string('name');
 
             $table->timestamps();
 
-            $table->foreign('categories_id')->references('id')->on('part_categories');
+            $table->foreign('categories_id')->references('id')->on('part_categories')->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

@@ -31,6 +31,7 @@ Route::resource('subcategories.parts', 'SubCategory\SubCategoryPartController', 
 Route::resource('brand.parts', 'Brand\BrandPartController', ['only' => ['index']]);
 Route::resource('manufacturer.parts', 'Manufacturer\ManufacturerPartController', ['only' => ['index']]);
 
+Route::resource('categories', 'Category\CategoryController', ['except' => ['show']]);
 Route::resource('parts', 'Part\PartController');
 
 /*

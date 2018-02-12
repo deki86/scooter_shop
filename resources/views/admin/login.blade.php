@@ -6,7 +6,8 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Admin Login</div>
       <div class="card-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login') }}">
+
+        <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login.submit') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -43,7 +44,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary btn-block" href="">Admin Login</a>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Admin Login
+                                </button>
 
                     </form>
         <div class="text-center">

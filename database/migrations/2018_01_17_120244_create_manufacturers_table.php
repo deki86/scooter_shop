@@ -14,7 +14,7 @@ class CreateManufacturersTable extends Migration
     public function up()
     {
         Schema::create('manufacturers', function (Blueprint $table) {
-            $table->engine = "InnoDB";
+
             $table->increments('id');
             $table->string('name');
 
