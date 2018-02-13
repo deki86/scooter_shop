@@ -10,7 +10,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="{{route('admin.home')}}">Categories</a>
+          <a href="{{route('categories.index')}}">Categories</a>
         </li>
         <li class="breadcrumb-item active">Categories List All</li>
       </ol>

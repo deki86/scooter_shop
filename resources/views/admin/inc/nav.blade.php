@@ -33,10 +33,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseSubCategories">
             <li>
-              <a href="">List of all subcategories</a>
+              <a href="{{route('subcategories.index')}}">List of all subcategories</a>
             </li>
             <li>
-              <a href="">Create new subcategory</a>
+              <a href="{{route('subcategories.create')}}">Create new subcategory</a>
             </li>
           </ul>
         </li>
