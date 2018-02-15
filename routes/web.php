@@ -33,6 +33,8 @@ Route::resource('manufacturer.parts', 'Manufacturer\ManufacturerPartController',
 
 Route::resource('categories', 'Category\CategoryController', ['except' => ['show']]);
 Route::resource('subcategories', 'SubCategory\SubCategoryController', ['except' => ['show']]);
+Route::resource('brands', 'Brand\BrandController', ['except' => ['show']]);
+Route::resource('manufacturers', 'Manufacturer\ManufacturerController', ['except' => ['show']]);
 
 Route::resource('parts', 'Part\PartController');
 
