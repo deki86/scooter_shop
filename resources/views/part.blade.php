@@ -4,7 +4,7 @@
 <div class="col-lg-6">
     <div class="row">
         <div class="card h-100">
-                  <a href="#"><img class="card-img-top" src="{{ $part->image }}" alt=""></a>
+                  <a href="#"><img class="card-img-top" src="/images/{{ $part->image }}" alt=""></a>
                   <div class="card-body">
                     <h3 class="card-title">
                       <a href="#">{{ $part->name }}</a>

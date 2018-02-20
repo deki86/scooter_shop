@@ -72,6 +72,21 @@
           </ul>
         </li>
 
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="parts">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseparts" data-parent="#exampleAccordion">
+            <i class="fa fa-cogs"></i>
+            <span class="nav-link-text">Part</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseparts">
+            <li>
+              <a href="{{route('parts.index')}}">List of all Parts</a>
+            </li>
+            <li>
+              <a href="{{route('parts.create')}}">Create new Part</a>
+            </li>
+          </ul>
+        </li>
+
 
       </ul>
       <ul class="navbar-nav sidenav-toggler">
