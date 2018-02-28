@@ -15,7 +15,7 @@ class PartController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin')->except(['show']);
+        $this->middleware('auth:admin')->except(['show', 'addToCart']);
     }
     /**
      * Display a listing of parts.
@@ -157,4 +157,5 @@ class PartController extends Controller
         $part->delete();
         return redirect('parts')->with('status', 'Succesfuly deleted part with image.');
     }
+
 }

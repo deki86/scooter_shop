@@ -37,6 +37,16 @@ Route::resource('brands', 'Brand\BrandController', ['except' => ['show']]);
 Route::resource('manufacturers', 'Manufacturer\ManufacturerController', ['except' => ['show']]);
 
 Route::resource('parts', 'Part\PartController');
+/*
+ * Routes for Shopping cart
+ */
+Route::get('add-to-cart/{part}', 'Cart\CartController@addToCart')->name('parts.addToCart');
+Route::get('shopping-cart', 'Cart\CartController@getCart')->name('parts.getCart');
+
+Route::post('shopping-cart/{part}', 'Cart\CartController@addToCart')->name('parts.addToCart2');
+Route::delete('shopping-cart/{part}', 'Cart\CartController@deleteOneItem')->name('parts.deleteItem');
+Route::delete('shopping-carts/{part}', 'Cart\CartController@deleteRowItems')->name('parts.deleteRowItems');
+Route::delete('empty-cart', 'Cart\CartController@emptyCart')->name('parts.emptyCart');
 
 /*
  * Admin routes

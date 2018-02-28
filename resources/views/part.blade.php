@@ -22,7 +22,10 @@
 
 
                   </div>
-                  <div class="col-12 mb-3"><button type="button" class="btn btn-primary float-right"><a href="">Add to cart</a></button>
+                  <div class="col-12 mb-3">
+                    <button type="button" class="btn btn-primary float-right">
+                      <a href="{{ route('parts.addToCart', ['part'=> $part->id ]) }}">Add to cart</a>
+                    </button>
                   </div>
         </div>
     </div>

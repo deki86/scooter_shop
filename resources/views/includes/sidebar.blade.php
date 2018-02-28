@@ -45,13 +45,15 @@
 				<li class="list-group-item pl-0" data-toggle="tooltip" data-placement="right" title="cart">
 		          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsecart" data-parent="#examplecart">
 
-		            <span class="nav-link-text"><i class="fa fa-shopping-cart fa-2x float-left" aria-hidden="true"></i> <h4 class="pl-5 pt-1">  Shopping cart</h4></span>
+		            <span class="nav-link-text"><i class="fa fa-shopping-cart fa-2x float-left" aria-hidden="true"></i> <h4 class="pl-5"> Cart <span class="badge badge-primary">{{ Session::has('cart') ? Session::get('cart')->quantityTotal : '' }}</span></h4>
+
+		            </span>
 		          </a>
 
 					  <ul class="sidenav-second-level collapse" id="collapsecart">
 
 						<li class="list-group">
-			            	  <a  href="">proba</a>
+			            	  <a  href="{{ route('parts.getCart') }}">View Shopping Cart</a>
 			            </li>
 
 
