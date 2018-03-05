@@ -1,5 +1,9 @@
 @extends('layouts.admin-app')
 
+@section('title')
+  Admin Registar Page
+@endsection
+
 @section('content')
   <div class="container">
     <div class="card card-register mx-auto mt-5">

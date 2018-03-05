@@ -1,5 +1,8 @@
 @extends('layouts.admin-app')
 
+@section('title')
+  Admin Category Edit
+@endsection
 @section('content')
 
     @include('admin.inc.nav')

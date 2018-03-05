@@ -1,5 +1,9 @@
 @extends('layouts.admin-app')
 
+@section('title')
+  Admin Brand Create New
+@endsection
+
 @section('content')
 
     @include('admin.inc.nav')

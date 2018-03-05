@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel')  }} - @yield('title')</title>
 
 
     <!-- Styles -->
@@ -33,12 +33,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('admin/js/app.js') }}"></script>
+    @yield('scripts')
 
-
-    <script src="{{ asset('admin/js/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin/js/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('admin/js/datatables/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('admin/js/sb-admin-charts.min.js') }}"></script>
 
 </body>
 </html>
