@@ -1,4 +1,9 @@
+
 @extends('layouts.app')
+
+@section('title')
+  Shopping Cart
+@endsection
 
 @section('content')
 <div class="col-lg-9">

@@ -6,7 +6,6 @@ use App\Brand;
 use App\Http\Controllers\Controller;
 use App\Manufacturer;
 use App\Part;
-use App\PartCategory;
 use App\PartSubcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -80,11 +79,10 @@ class PartController extends Controller
      */
     public function show(Part $part)
     {
-        $sub = PartCategory::with('subcategories')->get();
         $brands = Brand::all();
         $manufacturers = Manufacturer::all();
 
-        return view('part', compact('part', 'sub', 'brands', 'manufacturers'));
+        return view('part', compact('part', 'brands', 'manufacturers'));
     }
 
     /**

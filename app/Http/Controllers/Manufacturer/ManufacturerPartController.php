@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Manufacturer;
 
 use App\Http\Controllers\Controller;
 use App\Manufacturer;
-use App\PartCategory;
 
 class ManufacturerPartController extends Controller
 {
@@ -15,7 +14,6 @@ class ManufacturerPartController extends Controller
      */
     public function index(Manufacturer $manufacturer)
     {
-        $sub = PartCategory::with('subcategories')->get();
         $parts = $manufacturer->part()->paginate(6);
 
         return view('parts', compact('parts', 'sub'));

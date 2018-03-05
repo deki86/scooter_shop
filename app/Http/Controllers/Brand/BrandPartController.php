@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Brand;
 
 use App\Brand;
 use App\Http\Controllers\Controller;
-use App\PartCategory;
 
 class BrandPartController extends Controller
 {
@@ -15,10 +14,10 @@ class BrandPartController extends Controller
      */
     public function index(Brand $brand)
     {
-        $sub = PartCategory::with('subcategories')->get();
+
         $parts = $brand->part()->paginate(6);
 
-        return view('parts', compact('parts', 'sub'));
+        return view('parts', compact('parts'));
     }
 
 }

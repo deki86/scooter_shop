@@ -16,8 +16,6 @@ class CategoryPartController extends Controller
      */
     public function index(PartCategory $category)
     {
-        $sub = PartCategory::with('subcategories')->get();
-
         $parts = $category->subcategories()
             ->with('part')
             ->get()
@@ -26,7 +24,7 @@ class CategoryPartController extends Controller
 
         $parts = $this->paginate($parts, 9);
 
-        return view('parts', compact('parts', 'sub'));
+        return view('parts', compact('parts'));
     }
 
     /**

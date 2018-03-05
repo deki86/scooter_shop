@@ -103,7 +103,7 @@ class RegisterController extends Controller
         // $this->guard()->login($user);
 
         return $this->registered($request, $user)
-        ?: redirect($this->redirectPath())->with('status', 'Please verify your account!');
+        ?: redirect($this->redirectPath())->with('status', 'You are successfully registered, Please verify your account!');
     }
     /**
      * Send verification email to users who just registered

@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title')
+  Registar - Page
+@endsection
 
-                @if( session('status') )
+@section('content')
+        <div class="col-9">
+                      @if( session('status') )
                 <div class="alert alert-warning" role="alert">
                     {{ session('status') }}
                 </div>
@@ -130,5 +134,8 @@
                         </div>
                     </form>
                 </div>
+
+        </div><!-- end of col-9 -->
+
 
 @endsection

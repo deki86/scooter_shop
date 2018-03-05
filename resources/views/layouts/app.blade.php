@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Custom styles for this template -->
 <!--     <link href="css/shop-homepage.css" rel="stylesheet"> -->
@@ -34,8 +34,10 @@
 
         <div class="col-lg-3">
 
+          @if(!in_array(\Request::route()->getName(), ['register', 'login', 'about', 'contact', 'password.request', 'password.reset']))
+             @include('includes.sidebar')
+          @endif
 
-              @include('includes.sidebar')
 
 
         </div>
@@ -66,6 +68,7 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 
   </body>
 

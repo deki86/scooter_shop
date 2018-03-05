@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Cart;
 use App\Cart;
 use App\Http\Controllers\Controller;
 use App\Part;
-use App\PartCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -32,15 +31,13 @@ class CartController extends Controller
      */
     public function getCart()
     {
-        $sub = PartCategory::with('subcategories')->get();
-
         if (!Session::has('cart')) {
             return view('shop-cart', compact('sub'));
         } else {
             $oldCart = Session::get('cart');
             $cart = new Cart($oldCart);
 
-            return view('shop-cart', compact('sub', 'cart'));
+            return view('shop-cart', compact('cart'));
         }
 
     }

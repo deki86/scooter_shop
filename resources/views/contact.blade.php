@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
+@section('title')
+    Contact
+@endsection
+
 @section('content')
 
 
-          <div class="row">
+          <div class="col-md-9 col-md-offset-2">
 
-          	<div class="col-md-12 col-md-offset-2">
+
             <div class="panel panel-default">
             	<h1 class="display-4">Contact</h1>
 					<div class="panel-body">
@@ -74,11 +78,11 @@
                 @endif
         </div>
 	</div>
-</div>
+
 
 
           </div>
-          <!-- /.row -->
+          <!-- /.col-md-12 col-md-offset-2 -->
 
 
 @endsection

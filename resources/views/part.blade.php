@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+  {{$part->name}}
+@endsection
+
 @section('content')
 <div class="col-lg-6">
     <div class="row">

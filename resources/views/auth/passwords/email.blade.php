@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title')
+  Password Reset - Page
+@endsection
 
+@section('content')
+         <div class="col-9">
                <h1 class="display-4"> Reset Password</h1>
 
                 <div class="panel-body">
@@ -37,5 +41,6 @@
                         </div>
                     </form>
                 </div>
+            </div>
 
 @endsection

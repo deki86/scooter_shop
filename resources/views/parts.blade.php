@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+ Categories | Page
+@endsection
+
 @section('content')
 <div class="col-lg-9">
       @foreach(array_chunk($parts->all(), 3) as $row)
