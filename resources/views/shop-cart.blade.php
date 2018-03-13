@@ -70,10 +70,27 @@
             </div>
              <hr class="dropdown-divider w-100" />
                         <div class="col-12 float-right">
-                            <form action="" method="POST" class=" d-inline">
-                                {{ csrf_field() }}
-                                <button type="submit" class="btn btn-success">Checkout</button>
-                            </form>
+                                @auth
+
+                                  <a class="btn btn-primary btn-lg" href="{{ route('checkout.stripe') }}" role="button">Checkout via <i class="fa fa-cc-stripe fa-lg"></i></a>
+
+                                   <a class="btn btn-success btn-lg" href="" role="button">Checkout via <i class="fa fa-cc-paypal fa-lg"></i></a>
+
+                                @endauth
+
+                                @guest
+                                      <button type="button" class="btn btn-info btn-lg disabled" data-toggle="tooltip" data-placement="top" title="Please log in, to finish checkout!">
+                                     Checkout via <i class="fa fa-cc-stripe fa-lg"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-info btn-lg disabled" data-toggle="tooltip" data-placement="top" title="Please log in, to finish checkout!">
+                                     Checkout via <i class="fa fa-cc-paypal fa-lg"></i>
+                                    </button>
+
+
+                                @endguest
+
+
 
 
                             <form method="POST" action="{{ route('parts.emptyCart') }}" class="d-inline">
@@ -84,6 +101,11 @@
                               </button>
                             </form>
                         </div>
+                        @guest
+                        <div class="col-12">
+                          <p><strong>* Please log in, to finish payment!</strong></p>
+                        </div>
+                        @endguest
         @else
             <div class="col-12">
                 <h3 class="alert alert-info">Shooping Cart is Empty!</h3>

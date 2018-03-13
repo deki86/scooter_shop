@@ -82,7 +82,7 @@ class CartController extends Controller
      */
     public function emptyCart(Request $request)
     {
-        $request->session()->flush();
+        $request->session()->forget('cart');
         return redirect()->back();
     }
 

@@ -48,6 +48,12 @@ Route::delete('shopping-cart/{part}', 'Cart\CartController@deleteOneItem')->name
 Route::delete('shopping-carts/{part}', 'Cart\CartController@deleteRowItems')->name('parts.deleteRowItems');
 Route::delete('empty-cart', 'Cart\CartController@emptyCart')->name('parts.emptyCart');
 
+/**
+ * Checkout and payment proccess routes
+ */
+Route::get('checkout-stripe', 'Checkout\CheckoutController@showForm')->name('checkout.stripe');
+Route::post('checkout-stripe', 'Checkout\CheckoutController@proccessPayment')->name('proccess.stripe');
+
 /*
  * Admin routes
  */

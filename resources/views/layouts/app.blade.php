@@ -34,8 +34,11 @@
 
         <div class="col-lg-3">
 
-          @if(!in_array(\Request::route()->getName(), ['register', 'login', 'about', 'contact', 'password.request', 'password.reset']))
+          @if(!in_array(\Request::route()->getName(),
+          ['register', 'login', 'about', 'contact', 'password.request', 'password.reset', 'checkout.stripe']))
+
              @include('includes.sidebar')
+
           @endif
 
 
