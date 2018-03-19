@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Checkout;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderShipped;
 use App\Order;
 use App\Part;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
@@ -17,7 +19,7 @@ class CheckoutController extends Controller
     }
     public function showForm()
     {
-        return view('checkout');
+        return view('checkout.checkoutStripe');
     }
 
     public function proccessPayment(Request $request)
@@ -55,7 +57,7 @@ class CheckoutController extends Controller
             $input['payment_id'] = $charge['id'];
             $input['total_price'] = $cart->priceTotal;
             $input['parts'] = json_encode($cart);
-            Order::create($input);
+            $or = Order::create($input);
 
             // decrease part quantity that allready buyed
             foreach ($cart->items as $item) {
@@ -68,7 +70,11 @@ class CheckoutController extends Controller
             }
 
             // sending mail to users with orders
+            $order = Order::findOrFail($or->id);
+            Mail::to($request->email)->send(new OrderShipped($order));
+
             // empty sessions
+            Session::forget('cart');
             return back()->with('status', 'You succesfuly buy something');
         } catch (Exception $e) {
             // store in database orders with errors

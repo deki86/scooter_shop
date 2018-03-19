@@ -74,19 +74,12 @@
 
                                   <a class="btn btn-primary btn-lg" href="{{ route('checkout.stripe') }}" role="button">Checkout via <i class="fa fa-cc-stripe fa-lg"></i></a>
 
-                                   <a class="btn btn-success btn-lg" href="" role="button">Checkout via <i class="fa fa-cc-paypal fa-lg"></i></a>
-
                                 @endauth
 
                                 @guest
                                       <button type="button" class="btn btn-info btn-lg disabled" data-toggle="tooltip" data-placement="top" title="Please log in, to finish checkout!">
                                      Checkout via <i class="fa fa-cc-stripe fa-lg"></i>
                                     </button>
-
-                                    <button type="button" class="btn btn-info btn-lg disabled" data-toggle="tooltip" data-placement="top" title="Please log in, to finish checkout!">
-                                     Checkout via <i class="fa fa-cc-paypal fa-lg"></i>
-                                    </button>
-
 
                                 @endguest
 

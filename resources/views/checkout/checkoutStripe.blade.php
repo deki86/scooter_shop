@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('title')
-  Shopping Cart
+  Checkout Stripe
 @endsection
 
 @section('content')
