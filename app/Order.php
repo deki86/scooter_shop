@@ -47,6 +47,14 @@ class Order extends Model
     ];
 
     /**
+     * Check is order is sent to buyers address
+     * @return boolean
+     */
+    public function isOrderSent()
+    {
+        return $this->flag == Order::ORDER_SENT;
+    }
+    /**
      * Relation between Order model and User model
      * @return void
      */

@@ -37,6 +37,7 @@ Route::resource('brands', 'Brand\BrandController', ['except' => ['show']]);
 Route::resource('manufacturers', 'Manufacturer\ManufacturerController', ['except' => ['show']]);
 
 Route::resource('parts', 'Part\PartController');
+Route::resource('orders', 'Orders\OrdersController', ['except' => ['create', 'destroy', 'store', 'edit']]);
 /*
  * Routes for Shopping cart
  */

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Order;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -66,5 +67,14 @@ class User extends Authenticatable
     public static function generateVerificationCode()
     {
         return str_random(40);
+    }
+
+    /**
+     * Relation between User model and Order model
+     * @return void
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

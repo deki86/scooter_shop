@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PartController extends Controller
 {
+    /**
+     * Construct
+     */
     public function __construct()
     {
         $this->middleware('auth:admin')->except(['show', 'addToCart']);

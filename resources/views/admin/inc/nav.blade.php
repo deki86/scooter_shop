@@ -88,6 +88,22 @@
         </li>
 
 
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="orders">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseorders" data-parent="#exampleAccordion">
+            <i class="fa fa-cart-arrow-down"></i>
+            <span class="nav-link-text">Orders</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseorders">
+            <li>
+              <a href="{{route('orders.index')}}">List of all orders</a>
+            </li>
+            <li>
+              <a href="">Create new </a>
+            </li>
+          </ul>
+        </li>
+
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
