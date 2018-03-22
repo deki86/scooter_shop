@@ -48,6 +48,12 @@ Route::post('shopping-cart/{part}', 'Cart\CartController@addToCart')->name('part
 Route::delete('shopping-cart/{part}', 'Cart\CartController@deleteOneItem')->name('parts.deleteItem');
 Route::delete('shopping-carts/{part}', 'Cart\CartController@deleteRowItems')->name('parts.deleteRowItems');
 Route::delete('empty-cart', 'Cart\CartController@emptyCart')->name('parts.emptyCart');
+/**
+ * Routes for users - profile and orders
+ */
+Route::get('users/reset-password', 'UserController@showPasswordResetForm')->name('users.resetpass');
+Route::post('users/change-password', 'UserController@changePassword')->name('users.changepassword');
+Route::resource('users', 'UserController', ['only' => ['show', 'edit', 'update']]);
 
 /**
  * Checkout and payment proccess routes
