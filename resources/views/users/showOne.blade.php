@@ -21,7 +21,7 @@
   <p class="text-center h2">
     <a href="{{ route('users.resetpass') }}"><i class="fa fa-key"></i>Change Password</a> |
     <a href="{{ route('users.edit', Auth::user()->id) }}"><i class="fa fa-edit"></i>Edit Profile</a> |
-    <a href=""><i class="fa fa-cart-plus"></i>View your orders!</a>
+    <a href="{{ route('users.orders.index', Auth::user()->id ) }}"><i class="fa fa-cart-plus"></i>View your orders!</a>
   </p>
 </div>
 <hr >

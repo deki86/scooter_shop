@@ -54,6 +54,7 @@ Route::delete('empty-cart', 'Cart\CartController@emptyCart')->name('parts.emptyC
 Route::get('users/reset-password', 'UserController@showPasswordResetForm')->name('users.resetpass');
 Route::post('users/change-password', 'UserController@changePassword')->name('users.changepassword');
 Route::resource('users', 'UserController', ['only' => ['show', 'edit', 'update']]);
+Route::resource('users.orders', 'Orders\UserOrdersController', ['only' => ['index', 'show']]);
 
 /**
  * Checkout and payment proccess routes
